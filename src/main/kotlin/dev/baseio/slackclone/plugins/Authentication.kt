@@ -1,9 +1,9 @@
-package com.mutualmobile.plugins
+package dev.baseio.slackclone.plugins
 
 import com.google.firebase.FirebaseApp
-import com.mutualmobile.auth.FirebaseAdmin
-import com.mutualmobile.auth.FirebaseUser
-import com.mutualmobile.auth.firebase
+import dev.baseio.slackclone.auth.FirebaseAdmin
+import dev.baseio.slackclone.auth.FirebaseUser
+import dev.baseio.slackclone.auth.firebase
 import io.ktor.application.*
 import io.ktor.auth.*
 

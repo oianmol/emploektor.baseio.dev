@@ -1,4 +1,4 @@
-package com.mutualmobile.plugins
+package dev.baseio.slackclone.plugins
 
 import io.ktor.http.*
 import io.ktor.features.*

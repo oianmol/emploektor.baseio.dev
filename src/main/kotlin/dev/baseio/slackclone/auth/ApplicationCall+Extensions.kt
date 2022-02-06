@@ -1,4 +1,4 @@
-package com.mutualmobile.auth
+package dev.baseio.slackclone.auth
 
 import io.ktor.application.*
 import io.ktor.auth.*

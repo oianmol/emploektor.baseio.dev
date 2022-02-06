@@ -1,7 +1,6 @@
-package com.mutualmobile.rest
+package dev.baseio.slackclone.rest
 
 object MMEndpoints {
-    const val REQUEST_PTO = "/requestPto"
     const val REGISTER_USER = "/registerUser"
     const val SEARCH_USERS = "/searchUsers"
 }

@@ -1,4 +1,4 @@
-package com.mutualmobile.auth
+package dev.baseio.slackclone.auth
 
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.firebase.FirebaseApp

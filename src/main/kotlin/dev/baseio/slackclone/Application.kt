@@ -1,9 +1,10 @@
-package com.mutualmobile
+package dev.baseio.slackclone
 
-import com.mutualmobile.database.PraxisDatabase
+import dev.baseio.slackclone.database.PraxisDatabase
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import com.mutualmobile.plugins.*
+import dev.baseio.slackclone.plugins.*
+import dev.baseio.slackclone.plugins.*
 
 fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {

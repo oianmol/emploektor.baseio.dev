@@ -9,10 +9,10 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization") version "1.6.10"
 }
 
-group = "com.mutualmobile"
+group = "dev.baseio.slackclone"
 version = "0.0.1"
 application {
-    mainClass.set("com.mutualmobile.ApplicationKt")
+    mainClass.set("dev.baseio.slackclone.ApplicationKt")
 }
 
 repositories {
@@ -27,13 +27,6 @@ dependencies {
     implementation("io.ktor:ktor-auth:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
-
-    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
-    implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
-    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
-    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
-    implementation("org.jetbrains.exposed:exposed-kotlin-datetime:$exposedVersion")
-    implementation("org.postgresql:postgresql:42.3.1")
 
     implementation("com.google.firebase:firebase-admin:8.1.0")
 

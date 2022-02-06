@@ -1,4 +1,4 @@
-package com.mutualmobile.rest.models
+package dev.baseio.slackclone.rest.models
 
 import kotlinx.serialization.Serializable
 

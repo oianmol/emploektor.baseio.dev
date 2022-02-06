@@ -1,4 +1,4 @@
-package com.mutualmobile.database
+package dev.baseio.slackclone.database
 
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
