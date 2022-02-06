@@ -25,21 +25,20 @@ class SlackDatabaseImpl(private val connectionPool: ConnectionPool) : SlackDatab
     private suspend fun createTables() {
         val connection = connectionPool.create().awaitSingle()//we are in the coroutine - you can wait
         connection.createStatement("create schema IF NOT EXISTS slack").execute().awaitSingle()
-        val statement = connection.createStatement(
+        connection.createStatement(
             "CREATE TABLE IF NOT EXISTS `slack.USER` ( `name`  varchar(50) ,  `email` varchar(100),  " +
                     "`picurl`  text ,  `department`  varchar(100) ,  `title`  bigint ,  " +
-                    "`username`  bigint NOT NULL ,  `online`  bit(64) , " +
+                    "`username`  varchar(25) NOT NULL ,  `online`  bool DEFAULT false , " +
                     "CONSTRAINT pk_user PRIMARY KEY ( `username` ) ); "
-        )
-        statement.execute().awaitSingle()
+        ).execute().awaitFirst()
     }
 
 
-    override suspend fun tables(): List<SlackUser> {
+    override suspend fun getUsers(query: String): List<SlackUser> {
         val connection = connectionPool.create().awaitSingle()//we are in the coroutine - you can wait
         try {
             val result: List<R2DBCResult> = connection.createStatement(
-                "select * from slack.USER".trimIndent()
+                "select * from `slack.USER` where username like $query ;".trimIndent()
             )
                 .execute()//reactive stream will return here
                 .toFlux()//which we convert to a convenient Reactor Flux

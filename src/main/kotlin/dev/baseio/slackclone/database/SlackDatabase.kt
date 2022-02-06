@@ -5,5 +5,5 @@ import io.ktor.application.*
 
 interface SlackDatabase {
     fun initializeOnStart(application: Application)
-    suspend fun tables(): List<SlackUser>
+    suspend fun getUsers(query: String): List<SlackUser>
 }

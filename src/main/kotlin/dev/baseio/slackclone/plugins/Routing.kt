@@ -1,8 +1,6 @@
 package dev.baseio.slackclone.plugins
 
 import dev.baseio.slackclone.auth.applicationCallFirebaseUser
-import dev.baseio.slackclone.database.DB
-import dev.baseio.slackclone.database.R2DBCResult
 import dev.baseio.slackclone.database.SlackDatabase
 import dev.baseio.slackclone.rest.SlackEndpoints
 import dev.baseio.slackclone.rest.models.ApiResponse
@@ -11,11 +9,7 @@ import io.ktor.application.*
 import io.ktor.auth.*
 import io.ktor.http.*
 import io.ktor.response.*
-import kotlinx.coroutines.reactive.awaitFirst
-import kotlinx.coroutines.reactive.awaitFirstOrNull
-import kotlinx.coroutines.reactive.awaitSingle
 import org.koin.ktor.ext.inject
-import reactor.kotlin.core.publisher.toFlux
 
 fun Application.configureRouting() {
     routing {
@@ -24,20 +18,9 @@ fun Application.configureRouting() {
             searchUsers()
         }
         rootRoute()
-        tables()
     }
 }
 
-private fun Routing.tables() {
-    val slackDatabase by inject<SlackDatabase>()
-    get("/tables") {
-        try {
-            call.respond(slackDatabase.tables())
-        } finally {
-            call.respondText { "Error!" }
-        }
-    }
-}
 
 private fun Routing.rootRoute() {
     get("/") {
@@ -46,12 +29,14 @@ private fun Routing.rootRoute() {
 }
 
 private fun Route.searchUsers() {
+    val slackDatabase by inject<SlackDatabase>()
+
     get(SlackEndpoints.USERS) {
         val query = call.parameters[SlackEndpoints.Query.SEARCH] ?: return@get call.respond(
             status = HttpStatusCode.BadRequest,
             ApiResponse<String>("Missing or malformed query")
         )
-        call.respond(ApiResponse(data = null, message = "Found users"))
+        call.respond(ApiResponse(data = slackDatabase.getUsers(query), message = "Found users"))
     }
 }
 
