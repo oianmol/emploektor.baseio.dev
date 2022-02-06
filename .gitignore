@@ -1,0 +1,9 @@
+/.gradle
+/.idea
+/out
+/build
+*.iml
+*.ipr
+*.iws
+
+/src/main/resources/firebase-admin-sdk.json
