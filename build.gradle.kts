@@ -11,6 +11,8 @@ plugins {
 
 group = "dev.baseio.slackclone"
 version = "0.0.1"
+val koin_version = "3.1.5"
+
 application {
     mainClass.set("dev.baseio.slackclone.ApplicationKt")
 }
@@ -26,6 +28,15 @@ repositories {
 }
 
 dependencies {
+    // Koin Core features
+    implementation("io.insert-koin:koin-core:$koin_version")
+    // Koin Test features
+    testImplementation("io.insert-koin:koin-test:$koin_version")
+    // Koin for Ktor
+    implementation("io.insert-koin:koin-ktor:$koin_version")
+    // SLF4J Logger
+    implementation("io.insert-koin:koin-logger-slf4j:$koin_version")
+
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
     implementation("io.ktor:ktor-html-builder:$ktor_version")
