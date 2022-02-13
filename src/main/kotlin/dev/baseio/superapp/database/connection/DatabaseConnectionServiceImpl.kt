@@ -1,4 +1,4 @@
-package dev.baseio.superapp.database
+package dev.baseio.superapp.database.connection
 
 import dev.baseio.superapp.Config
 import org.ktorm.database.Database

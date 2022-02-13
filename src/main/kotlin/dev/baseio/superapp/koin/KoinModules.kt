@@ -1,8 +1,8 @@
 package dev.baseio.superapp.koin
 
 import dev.baseio.superapp.Config
-import dev.baseio.superapp.database.DatabaseConnectionService
-import dev.baseio.superapp.database.DatabaseConnectionServiceImpl
+import dev.baseio.superapp.database.connection.DatabaseConnectionService
+import dev.baseio.superapp.database.connection.DatabaseConnectionServiceImpl
 import io.ktor.config.*
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
