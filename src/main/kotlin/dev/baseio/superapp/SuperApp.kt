@@ -1,13 +1,11 @@
-package dev.baseio.slackclone
+package dev.baseio.superapp
 
-import dev.baseio.slackclone.database.SlackDatabase
-import dev.baseio.slackclone.koin.databaseModule
+import dev.baseio.superapp.koin.databaseModule
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import dev.baseio.slackclone.plugins.*
+import dev.baseio.superapp.plugins.*
 import io.ktor.application.*
 import org.koin.ktor.ext.Koin
-import org.koin.ktor.ext.inject
 import org.koin.logger.SLF4JLogger
 
 fun main() {
@@ -23,8 +21,5 @@ fun main() {
             SLF4JLogger()
             modules(databaseModule)
         }
-        val database: SlackDatabase by inject()
-        database.initializeOnStart(this)
-
     }.start(wait = true)
 }

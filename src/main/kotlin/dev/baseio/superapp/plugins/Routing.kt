@@ -1,15 +1,13 @@
-package dev.baseio.slackclone.plugins
+package dev.baseio.superapp.plugins
 
-import dev.baseio.slackclone.auth.applicationCallFirebaseUser
-import dev.baseio.slackclone.database.SlackDatabase
-import dev.baseio.slackclone.rest.SlackEndpoints
-import dev.baseio.slackclone.rest.models.ApiResponse
+import dev.baseio.superapp.auth.applicationCallFirebaseUser
+import dev.baseio.superapp.rest.SuperAppEndpoints
+import dev.baseio.superapp.rest.models.ApiResponse
 import io.ktor.routing.*
 import io.ktor.application.*
 import io.ktor.auth.*
 import io.ktor.http.*
 import io.ktor.response.*
-import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
     routing {
@@ -29,19 +27,17 @@ private fun Routing.rootRoute() {
 }
 
 private fun Route.searchUsers() {
-    val slackDatabase by inject<SlackDatabase>()
-
-    get(SlackEndpoints.USERS) {
-        val query = call.parameters[SlackEndpoints.Query.SEARCH] ?: return@get call.respond(
+    get(SuperAppEndpoints.USERS) {
+        val query = call.parameters[SuperAppEndpoints.Query.SEARCH] ?: return@get call.respond(
             status = HttpStatusCode.BadRequest,
             ApiResponse<String>("Missing or malformed query")
         )
-        call.respond(ApiResponse(data = slackDatabase.getUsers(query), message = "Found users"))
+        call.respond(ApiResponse(data = "", message = "Found users"))
     }
 }
 
 private fun Route.registerUser() {
-    post(SlackEndpoints.REGISTER_USER) {
+    post(SuperAppEndpoints.REGISTER_USER) {
         val firebaseUser = call.applicationCallFirebaseUser
         firebaseUser.email?.let {
             call.respond(ApiResponse(message = "Registered successfully", data = null))

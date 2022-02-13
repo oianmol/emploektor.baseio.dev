@@ -1,9 +1,9 @@
-package dev.baseio.slackclone
+package dev.baseio.superapp
 
 import io.ktor.http.*
 import kotlin.test.*
 import io.ktor.server.testing.*
-import dev.baseio.slackclone.plugins.configureRouting
+import dev.baseio.superapp.plugins.configureRouting
 
 class ApplicationTest {
     @Test

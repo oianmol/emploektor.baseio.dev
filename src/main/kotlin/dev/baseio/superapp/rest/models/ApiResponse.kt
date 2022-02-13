@@ -1,4 +1,4 @@
-package dev.baseio.slackclone.rest.models
+package dev.baseio.superapp.rest.models
 
 import kotlinx.serialization.Serializable
 

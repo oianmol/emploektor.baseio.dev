@@ -1,6 +1,6 @@
-package dev.baseio.slackclone.rest
+package dev.baseio.superapp.rest
 
-object SlackEndpoints {
+object SuperAppEndpoints {
     const val REGISTER_USER = "/registerUser"
     const val USERS = "/users"
 

@@ -1,4 +1,4 @@
-package dev.baseio.slackclone.auth
+package dev.baseio.superapp.auth
 
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth

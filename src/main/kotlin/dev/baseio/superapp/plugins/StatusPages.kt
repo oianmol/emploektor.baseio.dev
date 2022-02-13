@@ -1,4 +1,4 @@
-package dev.baseio.slackclone.plugins
+package dev.baseio.superapp.plugins
 
 import io.ktor.application.*
 import io.ktor.content.*

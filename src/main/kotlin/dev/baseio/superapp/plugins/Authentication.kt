@@ -1,9 +1,9 @@
-package dev.baseio.slackclone.plugins
+package dev.baseio.superapp.plugins
 
 import com.google.firebase.FirebaseApp
-import dev.baseio.slackclone.auth.FirebaseAdmin
-import dev.baseio.slackclone.auth.FirebaseUser
-import dev.baseio.slackclone.auth.firebase
+import dev.baseio.superapp.auth.FirebaseAdmin
+import dev.baseio.superapp.auth.FirebaseUser
+import dev.baseio.superapp.auth.firebase
 import io.ktor.application.*
 import io.ktor.auth.*
 
