@@ -37,6 +37,11 @@ dependencies {
     // SLF4J Logger
     implementation("io.insert-koin:koin-logger-slf4j:$koin_version")
 
+    // Database
+    implementation("org.ktorm:ktorm-core:3.4.1")
+    implementation("org.ktorm:ktorm-support-postgresql:3.4.1")
+    implementation( group= "org.postgresql", name= "postgresql", version= "42.3.2")
+
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
     implementation("io.ktor:ktor-html-builder:$ktor_version")
@@ -46,10 +51,6 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
     implementation("com.google.firebase:firebase-admin:8.1.0")
-    implementation("io.r2dbc:r2dbc-h2:0.9.1.RELEASE")
-    implementation("io.r2dbc:r2dbc-pool:0.9.0.RELEASE")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.1.5")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.0")
 
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
